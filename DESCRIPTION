@@ -1,0 +1,6 @@
+Package: empr
+Type: Package
+Encoding: UTF-8
+Title: Commonly Used EMP Functions
+Version: 0.1.0
+RoxygenNote: 7.1.1
