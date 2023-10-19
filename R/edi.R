@@ -26,7 +26,7 @@ get_edi_file = function(pkg_id, fnames, verbose = TRUE){
   fname_regex = stringr::str_c(glue::glue('({fnames})'), collapse = '|')
   included_entities = all_entities[stringr::str_detect(names(all_entities), fname_regex)]
   if(length(included_entities) != length(fnames)){
-    stop('Not all specified filenames are included in package')
+    stop('Not all specified filenames are included in package') 
   }
   # download data
   if (verbose) {
