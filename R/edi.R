@@ -38,3 +38,29 @@ get_edi_file = function(pkg_id, fnames, verbose = TRUE){
   names(dfs) = names(included_entities)
   return(dfs)
 }
+
+programs <- c('DWQ','CWQ','Benthic','Phyto','Zoop')
+#' Get EMP EDI Package Names
+#' Gives package ID for EMP data
+#' @param program The program to retrieve the EDI ID for. Must be one of `r knitr::combine_words(programs, and = 'or ')`.
+#' @export
+get_edi_ids = function(program){
+  program <- tolower(program)
+  str_programs <- toString(programs)
+  
+  if (!program %in% programs) {
+    stop(glue::glue("'program' argument must be one of: {str_programs}"))
+  }
+  
+  edi_ids <- list(
+    'dwq' = 458,
+    'cwq' = 1177,
+    'benthic' = 1036,
+    'phyto' = 1320,
+    'zoop' = 522
+  )
+  
+  id <- edi_ids[program]
+  
+  return(id)
+}
